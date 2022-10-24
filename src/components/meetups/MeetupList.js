@@ -1,10 +1,11 @@
 /*모임 목록 컴포넌트*/
 
 import MeetupItem from './MeetupItem';
+import classes from './MeetupList.module.css';
 
 const MeetupList = (props) => {
   return (
-    <ul>
+    <ul className={classes.list}>
       {props.meetups.map((meetup) => (
         <MeetupItem
           key={meetup.id}
