@@ -1,17 +1,21 @@
 /*새로운 모임을 추가할 컴포넌트*/
 
 import NewMeetupForm from '../components/meetups/NewMeetupForm';
+import {useHistory} from "react-router-dom";
 
 const NewMeetupPage = () => {
+
+  // useHistory 를 사용하면 페이지 이동을 위한 코드를 작성할 필요가 없다
+  const history = useHistory();
 
   const addMeetupHandler = (meetupData) => {
     fetch(
         'https://react-meetup-project-df2fd-default-rtdb.firebaseio.com/meetups.json',
         {
           method: 'POST',
-          body: JSON.stringify({
-            meetupData,
-          }),
+          body: JSON.stringify(
+            meetupData
+          ),
           headers: {
             'Content-Type': 'applications/json',
           }
@@ -27,7 +31,9 @@ const NewMeetupPage = () => {
           throw new Error(errorMessage);
         });
       }
-    });
+    }).then(() => {
+      history.replace('/');
+    })
   }
 
   return (
