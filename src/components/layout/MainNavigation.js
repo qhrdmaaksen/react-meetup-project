@@ -21,7 +21,7 @@ const MainNavigation = () => {
           </li>
           <li>
             <Link to="/new-meetup">
-              새 모임 등록
+              신규 모임 등록
             </Link>
           </li>
           <li>
