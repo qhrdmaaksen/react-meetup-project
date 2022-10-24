@@ -1,5 +1,7 @@
 /*!!!해당 컴포넌트는 모든 모임들을 로딩하고 표시함!!!*/
 
+import MeetupList from "../components/meetups/MeetupList";
+
 const DUMMY_DATA = [
   {
     id: 'm1',
@@ -25,11 +27,7 @@ const AllMeetupsPage = () => {
   return (
     <section>
       <h1>모든 모임 목록 페이지</h1>
-      <ul>
-        {DUMMY_DATA.map((meetup) => {
-          return <li key={meetup.id}>{meetup.title}</li>;
-        })}
-      </ul>
+      <MeetupList meetups={DUMMY_DATA}/>
     </section>
   );
 };
