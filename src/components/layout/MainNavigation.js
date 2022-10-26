@@ -7,8 +7,13 @@
 import classes from './MainNavigation.module.css';
 
 import {Link} from "react-router-dom";
+import {useContext} from 'react';
+import FavoritesContext from "../../store/favorites-context";
 
 const MainNavigation = () => {
+
+  const favoritesCtx = useContext(FavoritesContext);
+
   return (
     <header className={classes.header}>
       <div className={classes.logo}>모임 동호회</div>
@@ -27,6 +32,7 @@ const MainNavigation = () => {
           <li>
             <Link to="/favorites">
               즐겨찾기 목록
+              <span className={classes.badge}>{favoritesCtx.totalFavorites}</span>
             </Link>
           </li>
         </ul>
